@@ -1,17 +1,18 @@
 package com.kawka.badguide.ui;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import com.kawka.badguide.R;
 import com.kawka.badguide.data.model.NewsItem;
+import com.kawka.badguide.data.model.Person;
+import com.kawka.badguide.data.room.dao.FeedDao;
+import com.kawka.badguide.data.room.dao.PersonDao;
+import com.kawka.badguide.data.room.db.AppDatabase;
+import com.kawka.badguide.data.room.db.FeedDataBase;
 import com.kawka.badguide.viewmodels.FeedViewModel;
 
 import java.util.List;
@@ -23,14 +24,13 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getName();
 
     private FeedViewModel feedViewModel;
-    MutableLiveData<List<NewsItem>> mFeed = new MutableLiveData<>();
 
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        feedViewModel = new FeedViewModel();
+        feedViewModel = new FeedViewModel(getApplication());
         getLifecycle().addObserver(feedViewModel);
 
         feedViewModel.getDataFeed().observe(this, new Observer<List<NewsItem>>() {
@@ -39,6 +39,29 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "feed ViewModel changed");
             }
         });
+
+        NewsItem n = new NewsItem();
+        n.setTitle("dsdsadada");
+        n.setText("dsadasdadad");
+        n.setImgUrl("dsadadaddsaaaaaaaaaaaaa");
+
+//        FeedDataBase db = FeedDataBase.getInstance(getApplicationContext());
+//        FeedDao feedDao = db.feedDao();
+        AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+        PersonDao d = db.getPersonDao();
+        Person p = new Person();
+        p.setAge(323);
+        p.setName("dsadadada");
+
+
+       new Thread(new Runnable() {
+           @Override
+           public void run() {
+               //d.insertAll(p);
+               List<Person> ds = d.getAllPeople();
+               int sda = 3132;
+           }
+       }).start();
 
     }
 }
