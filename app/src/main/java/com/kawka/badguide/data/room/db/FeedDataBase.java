@@ -11,14 +11,13 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import com.kawka.badguide.data.model.NewsItem;
-import com.kawka.badguide.data.room.dao.FeedDao;
 
 @Database(entities = {NewsItem.class}, version = 1)
 public abstract class FeedDataBase extends RoomDatabase {
 
     private static volatile FeedDataBase INSTANCE;
 
-    public abstract FeedDao feedDao();
+    //public abstract FeedDao feedDao();
 
     public static FeedDataBase getInstance(Context context) {
         if (INSTANCE == null) {

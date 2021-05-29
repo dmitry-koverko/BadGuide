@@ -9,10 +9,11 @@ import android.util.Log;
 import com.kawka.badguide.R;
 import com.kawka.badguide.data.model.NewsItem;
 import com.kawka.badguide.data.model.Person;
-import com.kawka.badguide.data.room.dao.FeedDao;
 import com.kawka.badguide.data.room.dao.PersonDao;
 import com.kawka.badguide.data.room.db.AppDatabase;
 import com.kawka.badguide.data.room.db.FeedDataBase;
+import com.kawka.badguide.ui.bottombarview.BottomBarItem;
+import com.kawka.badguide.ui.bottombarview.BottomBarView;
 import com.kawka.badguide.viewmodels.FeedViewModel;
 
 import java.util.List;
@@ -32,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         feedViewModel = new FeedViewModel(getApplication());
         getLifecycle().addObserver(feedViewModel);
+
+//        BottomBarItem i = (BottomBarItem) findViewById(R.id.menu_item_info);
+//        i.setEventListener(new BottomBarItem.IMyEventListener() {
+//            @Override
+//            public void onEventOccurred() {
+//                String d = "";
+//            }
+//        });
 
         feedViewModel.getDataFeed().observe(this, new Observer<List<NewsItem>>() {
             @Override
