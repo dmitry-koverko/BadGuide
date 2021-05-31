@@ -1,16 +1,22 @@
 package com.kawka.badguide.ui.bottombarview;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -18,9 +24,10 @@ import androidx.core.content.ContextCompat;
 
 import com.kawka.badguide.R;
 
-public class BottomBarItem extends View{
+public class BottomBarItem extends View   {
 
-//    public interface IMyEventListener {
+
+    //    public interface IMyEventListener {
 //        public void onEventOccurred();
 //    }
 //
@@ -52,6 +59,12 @@ public class BottomBarItem extends View{
 
     private int type = 0;
 
+    private Path path;
+
+    private Canvas mCanvas;
+
+    private int cY = 0;
+
     public BottomBarItem(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
@@ -79,8 +92,35 @@ public class BottomBarItem extends View{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        drowLine(canvas);
+        if(active) {
+            drowLine(canvas);
+        }
         drowIcon(canvas);
+    }
+
+    private void startAim() {
+
+        ValueAnimator animation = ValueAnimator.ofInt(0 , 100);
+
+        animation.setDuration(50);
+        animation.start();
+
+        animation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+               int animatedValue = (int) animation.getAnimatedValue();
+               cY = animatedValue;
+                invalidate();
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        active = true;
+        startAim();
+        return true;
     }
 
     private void drowIcon(Canvas canvas) {
@@ -112,10 +152,19 @@ public class BottomBarItem extends View{
 
     private void drowLine(Canvas canvas) {
 
+        try{
+            paint.setStrokeWidth(6);
+            paint.setColor(Color.parseColor("#FFFFFF"));
+            canvas.drawLine(0,0, 0, cY + 10, paint);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     private void initPaint() {
+
         // init pain to lines
         paint = new Paint();
         paint.setColor(getResources().getColor(R.color.bottom_bar_line_top_1));
@@ -125,7 +174,7 @@ public class BottomBarItem extends View{
         paint.setFlags(Paint.ANTI_ALIAS_FLAG);
 
         paintBitmap = new Paint(Paint.ANTI_ALIAS_FLAG);
-
+        path = new Path();
     }
 
     @Override
@@ -182,4 +231,6 @@ public class BottomBarItem extends View{
         drawable.draw(canvas);
         return bitmap;
     }
+
+
 }

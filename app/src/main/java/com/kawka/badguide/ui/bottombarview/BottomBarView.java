@@ -65,10 +65,10 @@ public class BottomBarView extends View {
     private void initPaint() {
         // init pain to lines
         paint = new Paint();
-        paint.setColor(getResources().getColor(R.color.bottom_bar_line_top_3));
+           paint.setColor(getResources().getColor(R.color.bottom_bar_line_top_3));
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(heightLineTop);
-        paint.setTextAlign(Paint.Align.CENTER);
+           paint.setTextAlign(Paint.Align.CENTER);
         paint.setFlags(Paint.ANTI_ALIAS_FLAG);
 
 
@@ -81,12 +81,12 @@ public class BottomBarView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
-        heightView = getResources().getDimensionPixelSize(R.dimen.slider_default_size);
+                    heightView = getResources().getDimensionPixelSize(R.dimen.slider_default_size);
         widthView = MeasureSpec.getSize(widthMeasureSpec);
 
         Log.d(TAG, "width = " + widthView + "   height = " + heightView);
 
-        setMeasuredDimension(widthView, heightView);
+                setMeasuredDimension(widthView, heightView);
 
     }
     /*
