@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/colorPrimary"
@@ -7,9 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
- <include
-     layout="@layout/bottmo_bar_view"
-     app:layout_constraintBottom_toBottomOf="parent" />
+ <FrameLayout
+     android:id="@+id/frame"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_marginBottom="@dimen/slider_default_size"/>
+
+ <com.kawka.badguide.ui.bottombarview.BottomBarView
+     android:id="@+id/bottom_bar"
+     android:layout_width="match_parent"
+     android:layout_height="@dimen/slider_default_size"
+     android:layout_alignParentBottom="true"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

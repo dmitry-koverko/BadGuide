@@ -2,10 +2,8 @@
 <resources>
     <color name="colorPrimary">#02152D</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#0E0D2C</color>
 
 
-    <color name="bottom_bar_line_top_1">#2E8AFF</color>
-    <color name="bottom_bar_line_top_2">#4CAF50</color>
-    <color name="bottom_bar_line_top_3">#E91E63</color>
+    <color name="bottom_bar_line_top_1">#0070FD</color>
 </resources>

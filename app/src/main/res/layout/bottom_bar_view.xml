@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/slider_default_size">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/transition"
+            android:id="@+id/menu_item_info"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_default_size"
+            app:layout_constraintEnd_toStartOf="@id/menu_item_list"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"></ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_item_list"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:background="@drawable/transition"
+            android:layout_height="@dimen/slider_default_size"
+            app:layout_constraintEnd_toStartOf="@id/menu_item_refresh"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/menu_item_info">
+
+            <ImageView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_newspaper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"></ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_item_refresh"
+            android:background="@drawable/transition"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_default_size"
+            app:layout_constraintEnd_toStartOf="@id/menu_item_facts"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/menu_item_list">
+
+            <ImageView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"></ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_item_facts"
+            app:layout_constraintEnd_toStartOf="@id/menu_item_settings"
+            android:background="@drawable/transition"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_default_size">
+
+            <ImageView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_idea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"></ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/transition"
+            app:layout_constraintStart_toEndOf="@id/menu_item_facts"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/menu_item_settings"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/slider_default_size">
+
+            <ImageView
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/ic_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"></ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

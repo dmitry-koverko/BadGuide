@@ -17,5 +17,5 @@
             </size>
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_baseline_info_24" />
+    <item android:drawable="@drawable/ic_info" />
 </layer-list>
