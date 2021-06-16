@@ -12,4 +12,12 @@
             <enum name="settings" value="4"></enum>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="ScratchView">
+        <attr name="overlayColor" format="color"/>
+        <attr name="revealSize" format="dimension"/>
+        <attr name="antiAlias" format="boolean"/>
+        <attr name="scratchable" format="boolean"/>
+        <attr name="scratchDrawable" format="reference"/>
+    </declare-styleable>
 </resources>

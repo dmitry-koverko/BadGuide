@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#02152D</color>
+
+    <color name="colorPrimary">#673AB7</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#0E0D2C</color>
 
@@ -9,4 +10,5 @@
     <color name="colorPoseGenerate1">#0D0070FD</color>
     <color name="colorPoseGenerate2">#400070FD</color>
     <color name="colorPoseGenerate3">#400070FD</color>
+
 </resources>

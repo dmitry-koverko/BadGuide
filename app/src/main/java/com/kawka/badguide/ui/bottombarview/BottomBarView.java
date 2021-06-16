@@ -128,6 +128,7 @@ public class BottomBarView extends ConstraintLayout implements View.OnClickListe
        if(v != null && v.getBackground() != null) {
            transition = (TransitionDrawable) v.getBackground();
            transition.startTransition(animateDelay);
+
        }
 
 
